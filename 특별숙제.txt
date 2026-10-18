@@ -1,0 +1,8 @@
+파이썬 리스트 (인덱스, 슬라이싱, 등등 리스트 기초)
+넘파이 배열 (특히 2d array)
+- 생성법
+- 넘파이 인덱스
+- 넘파이 기초
+
+파이썬 기초 for, while, break, continue, pass, if, else if, else, logical operation (and, or, 등)
+
