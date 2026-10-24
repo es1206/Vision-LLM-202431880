@@ -1,1 +1,1 @@
-"""AI SIMON computer-vision components."""
+"""AI Color Memory Game: Source package initialization."""

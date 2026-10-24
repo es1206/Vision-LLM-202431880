@@ -1,8 +1,4 @@
-"""Five serial sound effects; no runtime audio third-party package needed.
-
-Windows: winsound (standard library); Jetson Linux: ALSA aplay (alsa-utils).
-One worker exclusively owns the audio output. The main camera thread never waits.
-"""
+"""AI Color Memory Game: Game sound effect management."""
 from pathlib import Path
 from queue import Queue, Empty
 import shutil

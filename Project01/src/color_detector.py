@@ -1,4 +1,4 @@
-"""Lecture: inRange, morphology open/close, external contours and moments."""
+"""AI Color Memory Game: Color segmentation and detection."""
 import cv2
 import numpy as np
 from config import HSV_RANGES, MIN_COLOR_AREA

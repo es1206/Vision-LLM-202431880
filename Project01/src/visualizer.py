@@ -1,4 +1,4 @@
-"""All game graphics drawn locally using OpenCV, no browser required."""
+"""AI Color Memory Game: Game interface and visual feedback."""
 import cv2
 import numpy as np
 from config import COLOR_BGR, TOUCH_HOLD_SECONDS, MAX_ROUND, ROUND_LENGTHS, ROUND_SCORES

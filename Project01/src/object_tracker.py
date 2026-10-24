@@ -1,4 +1,4 @@
-"""Track the four uniquely colored paper panels and bridge short occlusions."""
+"""AI Color Memory Game: Color board position tracking."""
 from config import COLOR_CACHE_SECONDS
 
 

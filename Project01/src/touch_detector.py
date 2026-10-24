@@ -1,8 +1,4 @@
-"""Robust virtual button input using the calibrated, stationary board.
-
-A single MediaPipe dropout cannot erase a nearly completed finger press.
-The finger must leave all buttons before another press is accepted.
-"""
+"""AI Color Memory Game: Color board touch detection."""
 import cv2
 from config import TOUCH_HOLD_SECONDS, TOUCH_RELEASE_SECONDS
 

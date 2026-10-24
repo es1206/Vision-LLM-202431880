@@ -1,8 +1,4 @@
-"""Simon game state machine; camera / MediaPipe-independent.
-
-Round lengths (3, 5, 8), worth (20, 30, 50) points respectively.
-Correct inputs award points immediately, not only at the round boundary.
-"""
+"""AI Color Memory Game: Game rules and sequence validation."""
 import random
 from config import (
     MAX_ROUND, ROUND_LENGTHS, ROUND_SCORES,

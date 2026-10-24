@@ -1,6 +1,4 @@
-"""AI SIMON: continuously tracked paper-board memory game.
-Lecture-based OpenCV segmentation and MediaPipe HandLandmarker.
-"""
+"""AI Color Memory Game: Main application entry point."""
 import argparse
 from pathlib import Path
 import time
@@ -53,7 +51,7 @@ def submit_choice(game, chosen, now, sounds):
 
 
 def main():
-    parser = argparse.ArgumentParser(description="AI Color Memory Game")
+    parser = argparse.ArgumentParser(description="AI Color Memory Game game")
     parser.add_argument("--mode", choices=("laptop", "jetson_usb", "jetson_csi", "video"),
                         default=DEFAULT_CAMERA_MODE)
     parser.add_argument("--source", default=str(LAPTOP_CAMERA_INDEX))
@@ -62,10 +60,7 @@ def main():
     parser.add_argument("--debug-input", action="store_true", help="Laptop diagnostic: keys 1/2/3/4 test scoring without webcam touch")
     parser.add_argument("--verbose", action="store_true", help="Print changes in touch state")
     parser.add_argument("--mute", action="store_true", help="Run without sound effects")
-    parser.add_argument("--flip", choices=("none", "0", "1", "-1"), default=None,
-                        help="Override orientation. Classroom hand demo used cv2.flip(frame, 0); default preserves the raw frame.")
     args = parser.parse_args()
-    active_flip = FLIP_CODE if args.flip is None else (None if args.flip == "none" else int(args.flip))
 
     cap = None
     hand = None
@@ -80,7 +75,7 @@ def main():
         touch = TouchDetector()
         game = SimonGame()
         sounds = SoundManager(PROJECT_DIR / "sounds", enabled=not args.mute)
-        print("AI SIMON: live panel tracking, 4 visible panels -> SPACE=start")
+        print("AI Color Memory Game: live panel tracking, 4 visible panels -> SPACE=start")
         print("R=reset / S=screenshot / H=masks / Q=quit")
         if args.debug_input:
             print("DEBUG INPUT enabled: 1=RED 2=BLUE 3=GREEN 4=YELLOW")
@@ -91,8 +86,8 @@ def main():
                 print("Video/camera frame ended.")
                 break
             now = time.monotonic()
-            if active_flip in (-1, 0, 1):
-                frame = cv2.flip(frame, active_flip)
+            if FLIP_CODE in (-1, 0, 1):
+                frame = cv2.flip(frame, FLIP_CODE)
             frame = cv2.resize(frame, (640, 480))
             hsv = preprocess(frame)
             detections, masks = detect_colors(hsv)

@@ -1,4 +1,4 @@
-"""Adapted from 02_Computer-Vision.ipynb, M. MediaPipe real-time body recognition."""
+"""AI Color Memory Game: Hand landmark detection and tracking."""
 from pathlib import Path
 import cv2
 import mediapipe as mp

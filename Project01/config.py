@@ -1,4 +1,4 @@
-"""AI SIMON settings. The default camera is the final Jetson USB camera."""
+"""AI Color Memory Game: Game settings and constants."""
 
 DEFAULT_CAMERA_MODE = "jetson_usb"
 CAMERA_WIDTH = 640
