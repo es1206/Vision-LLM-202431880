@@ -1,0 +1,5 @@
+# Laptop only: install MediaPipe along with compatible Python dependencies.
+# On Jetson, preserve the lecture's pre-existing system OpenCV and MediaPipe environment.
+numpy
+opencv-python
+mediapipe
