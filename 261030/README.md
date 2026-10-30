@@ -1,5 +1,5 @@
 
-# 261031 Computer Vision Assignment 03
+# 261030 Computer Vision Assignment 03
 
 **학번: 202431880**  
 **이름: 최은수**
