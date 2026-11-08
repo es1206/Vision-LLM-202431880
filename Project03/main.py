@@ -6,21 +6,21 @@ from datetime import datetime
 from ultralytics import YOLO
 from llama_cpp import Llama
 
-YOLO_MODEL = "src/models/YOLO/yolo11n_int8.engine"
-GEMMA_MODEL = "src/models/Gemma4/google_gemma-4-E2B-it-Q4_K_M.gguf"
-PIPER_PYTHON = ".piper_venv/bin/python"
-PIPER_MODEL = "src/models/Piper/ko_KR-kss-medium.onnx"
-AUDIO_FILE = "src/audio/response.wav"
+YOLO_MODEL = "../src/models/YOLO/yolo11n_int8.engine"
+GEMMA_MODEL = "../src/models/Gemma4/google_gemma-4-E2B-it-Q4_K_M.gguf"
+PIPER_PYTHON = "../.piper_venv/bin/python"
+PIPER_MODEL = "../src/models/Piper/ko_KR-kss-medium.onnx"
+AUDIO_FILE = "../src/audio/response.wav"
 LOG_FILE = "focus_log.csv"
 CONFIDENCE = 0.4
 STABLE_FRAMES = 3
 
 pipeline = (
-    "nvarguscamerasrc sensor-id=0 ! "
-    "video/x-raw(memory:NVMM), width=1280, height=720, framerate=30/1 ! "
-    "nvvidconv ! video/x-raw, format=BGRx ! "
-    "videoconvert ! video/x-raw, format=BGR ! "
-    "queue leaky=downstream max-size-buffers=1 ! "
+    "v4l2src device=/dev/video0 ! "
+    "video/x-raw,format=YUY2,width=640,height=480,framerate=30/1 ! "
+    "videoconvert ! video/x-raw,format=BGR ! "
+    "queue leaky=downstream max-size-buffers=1 "
+    "max-size-bytes=0 max-size-time=0 ! "
     "appsink drop=true max-buffers=1 sync=false"
 )
 
